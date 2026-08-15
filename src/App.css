@@ -313,13 +313,29 @@ nav li:hover {
   gap: 15px;
 }
 
-.contact-card > div {
-  flex: 1;
-  padding: 10px;
+.contact-item {
+  display: block;
+  padding: 15px;
   background-color: #111827;
   border: 1px solid #374151;
   border-radius: 12px;
+  text-decoration: none;
+  color: white;
   transition: 0.3s;
+}
+
+.contact-item:hover {
+  transform: translateY(-4px);
+  background-color: #1f2937;
+  border-color: #38bdf8;
+}
+
+.contact-item h3 {
+  margin-bottom: 5px;
+}
+
+.contact-item p {
+  margin: 0;
 }
 
 .contact-card > div:hover {

@@ -5,15 +5,37 @@ function Contact() {
       <p>Let's connect and build something together.</p>
 
       <div className="contact-card">
-        <div>
-          <h3>Email</h3>
-          <p>your-email@example.com</p>
-        </div>
 
-        <div>
+        <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=venkatateja.mokka@gmail.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="contact-item"
+>
+  <h3>Email</h3>
+  <p>venkatateja.mokka@gmail.com</p>
+</a>
+
+        <a
+          href="https://github.com/tejamokka"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="contact-item"
+        >
           <h3>GitHub</h3>
-          <p>Your GitHub profile</p>
-        </div>
+          <p>github.com/tejamokka</p>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/Tejamokka/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="contact-item"
+        >
+          <h3>LinkedIn</h3>
+          <p>LinkedIn Profile</p>
+        </a>
+
       </div>
     </section>
   );
