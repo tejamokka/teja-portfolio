@@ -1,0 +1,336 @@
+.pc-card-wrapper {
+  position: relative;
+  width: 360px;
+  perspective: 1000px;
+}
+
+.pc-card-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.pc-card {
+  width: 360px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #111;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  transform:
+    rotateX(var(--rotate-y))
+    rotateY(var(--rotate-x));
+
+  backface-visibility: hidden;
+}
+
+.pc-card:hover {
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Main card content */
+.pc-inside {
+  position: absolute;
+  inset: 0;
+
+  background: #111;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+/* Disable holographic layers */
+.pc-shine {
+  display: none !important;
+}
+
+.pc-glare {
+  display: none !important;
+}
+
+.pc-behind {
+  display: none;
+}
+
+/* Photo */
+.pc-avatar-content {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: 1;
+
+  mix-blend-mode: normal;
+}
+
+.pc-avatar-content .avatar {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  left: 0;
+  bottom: 0;
+
+  object-fit: cover;
+  object-position: center top;
+
+  transform: none;
+
+  border-radius: 20px;
+
+  z-index: 1;
+}
+
+/* Dark gradient at bottom for text */
+.pc-avatar-content::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 45%;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.85)
+    );
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+/* Bottom information */
+.pc-user-info {
+  position: absolute;
+
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 12px;
+
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(8px);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.15);
+
+  pointer-events: auto;
+}
+
+.pc-user-details {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.pc-mini-avatar {
+  width: 42px;
+  height: 42px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+
+  border:
+    2px solid
+    rgba(255, 255, 255, 0.7);
+}
+
+.pc-mini-avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.pc-user-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.pc-handle {
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.pc-status {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 12px;
+}
+
+/* Contact button */
+.pc-contact-btn {
+  padding: 8px 12px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.3);
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border 0.2s ease;
+}
+
+.pc-contact-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+
+  border-color:
+    rgba(255, 255, 255, 0.6);
+}
+
+/* Name and title */
+.pc-content:not(.pc-avatar-content) {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+.pc-details {
+  position: absolute;
+
+  top: 25px;
+
+  width: 100%;
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.pc-details h3 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.pc-details p {
+  margin: 5px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.85);
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pc-card-wrapper {
+    width: 300px;
+  }
+
+  .pc-card {
+    width: 300px;
+    height: 420px;
+  }
+
+  .pc-details h3 {
+    font-size: 24px;
+  }
+
+  .pc-user-info {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pc-card-wrapper {
+    width: 280px;
+  }
+
+  .pc-card {
+    width: 280px;
+    height: 390px;
+  }
+
+  .pc-details h3 {
+    font-size: 22px;
+  }
+
+  .pc-details p {
+    font-size: 12px;
+  }
+
+  .pc-mini-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pc-handle {
+    font-size: 12px;
+  }
+
+  .pc-status {
+    font-size: 10px;
+  }
+}

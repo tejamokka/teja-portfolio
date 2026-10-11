@@ -1,10 +1,10 @@
 /* ========================================
    SPIDER-MAN INSPIRED PORTFOLIO
-   ======================================== */
+======================================== */
 
-/* ================================
+/* ========================================
    GLOBAL
-================================ */
+======================================== */
 
 * {
   margin: 0;
@@ -18,27 +18,46 @@ html {
 
 body {
   font-family: "Inter", Arial, sans-serif;
+
   background:
-    radial-gradient(circle at 10% 10%, rgba(220, 38, 38, 0.12), transparent 28%),
-    radial-gradient(circle at 90% 30%, rgba(37, 99, 235, 0.12), transparent 30%),
-    linear-gradient(135deg, #070b14 0%, #0b1220 50%, #080b12 100%);
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(220, 38, 38, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(37, 99, 235, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #070b14 0%,
+      #0b1220 50%,
+      #080b12 100%
+    );
+
   color: #f8fafc;
   overflow-x: hidden;
   line-height: 1.6;
 }
 
-/* Subtle web-like diagonal pattern */
+/* ========================================
+   SPIDER WEB BACKGROUND
+======================================== */
+
 body::before {
   content: "";
+
   position: fixed;
   inset: 0;
+
   pointer-events: none;
   z-index: -1;
 
   opacity: 0.18;
 
   background:
-    /* web spokes */
     repeating-conic-gradient(
       from 0deg at 50% 50%,
       transparent 0deg 10deg,
@@ -46,7 +65,6 @@ body::before {
       transparent 11.5deg 20deg
     ),
 
-    /* web rings */
     repeating-radial-gradient(
       circle at 50% 50%,
       transparent 0 45px,
@@ -61,8 +79,10 @@ body::before {
     transparent 85%
   );
 }
+
 body::after {
   content: "";
+
   position: fixed;
 
   width: 500px;
@@ -98,14 +118,25 @@ body::after {
   );
 }
 
-/* ================================
+/* ========================================
+   ROOT
+======================================== */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+/* ========================================
    SECTIONS
-================================ */
+======================================== */
 
 section {
   max-width: 1100px;
   margin: 0 auto;
   padding: 90px 24px;
+  background: transparent;
 }
 
 section h2 {
@@ -118,11 +149,16 @@ section h2 {
 
 section h2::after {
   content: "";
+
   display: block;
+
   width: 45px;
   height: 3px;
+
   margin: 10px auto 0;
+
   border-radius: 5px;
+
   background: #e11d48;
 }
 
@@ -131,9 +167,9 @@ section p {
   color: #94a3b8;
 }
 
-/* ================================
+/* ========================================
    NAVBAR
-================================ */
+======================================== */
 
 nav,
 .navbar {
@@ -143,16 +179,18 @@ nav,
 
   width: calc(100% - 40px);
   max-width: 1100px;
-  margin: 15px auto 0;
 
+  margin: 15px auto 0;
   padding: 14px 22px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 20px;
 
   background: rgba(10, 16, 29, 0.82);
+
   backdrop-filter: blur(16px);
 
   border: 1px solid #26344d;
@@ -165,17 +203,22 @@ nav,
 
 nav ul {
   list-style: none;
+
   display: flex;
   align-items: center;
+
   gap: 25px;
 }
 
 nav a,
 .navbar a {
   color: #cbd5e1;
+
   text-decoration: none;
+
   font-size: 15px;
   font-weight: 500;
+
   transition: 0.25s ease;
 }
 
@@ -187,111 +230,19 @@ nav a:hover,
 nav h2,
 .navbar h2 {
   color: #ef4444;
+
   font-size: 22px;
   letter-spacing: 1px;
 }
 
-/* ================================
+/* ========================================
    HERO
-================================ */
+======================================== */
 
-.hero {
-  min-height: 85vh;
-  max-width: 1100px;
-  margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-  padding: 80px 24px;
-}
-
-.hero img {
-  width: 180px;
-  height: 180px;
-
-  object-fit: cover;
-  border-radius: 50%;
-
-  border: 4px solid #e11d48;
-
-  box-shadow:
-    0 0 0 3px #1d4ed8,
-    0 0 35px rgba(225, 29, 72, 0.3),
-    0 15px 40px rgba(0, 0, 0, 0.35);
-
-  margin-bottom: 30px;
-
-  transition: 0.3s ease;
-}
-
-.hero img:hover {
-  transform: scale(1.04);
-  box-shadow:
-    0 0 0 3px #2563eb,
-    0 0 45px rgba(225, 29, 72, 0.4);
-}
-
-.hero h1 {
-  font-size: clamp(42px, 7vw, 76px);
-  font-weight: 800;
-  letter-spacing: -2px;
-  margin-bottom: 15px;
-
-  background: linear-gradient(
-    90deg,
-    #ffffff,
-    #ef4444,
-    #3b82f6
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-  max-width: 600px;
-  color: #94a3b8;
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.hero button {
-  margin-top: 10px;
-  padding: 12px 27px;
-
-  font-size: 15px;
-  font-weight: 650;
-
-  background: #e11d48;
-  color: #ffffff;
-
-  border: none;
-  border-radius: 30px;
-
-  cursor: pointer;
-
-  transition: 0.25s ease;
-
-  box-shadow:
-    0 8px 25px rgba(225, 29, 72, 0.25);
-}
-
-.hero button:hover {
-  background: #be123c;
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 12px 35px rgba(225, 29, 72, 0.35);
-}
-
-/* ================================
+/* ========================================
    PROJECTS
-================================ */
+======================================== */
 
 .projects {
   text-align: center;
@@ -304,8 +255,8 @@ nav h2,
 .project-card {
   width: 350px;
   max-width: 90%;
-  margin: 0 auto;
 
+  margin: 0 auto;
   padding: 28px;
 
   background:
@@ -326,6 +277,7 @@ nav h2,
 
 .project-card:hover {
   transform: translateY(-7px);
+
   border-color: #e11d48;
 
   box-shadow:
@@ -339,7 +291,9 @@ nav h2,
 
 .project-card p {
   line-height: 1.6;
+
   margin-bottom: 20px;
+
   color: #94a3b8;
 }
 
@@ -354,6 +308,7 @@ nav h2,
   border: 1px solid rgba(37, 99, 235, 0.25);
 
   border-radius: 15px;
+
   font-size: 14px;
   font-weight: 600;
 }
@@ -368,6 +323,7 @@ nav h2,
   color: #ffffff;
 
   text-decoration: none;
+
   border-radius: 20px;
 
   transition: 0.25s ease;
@@ -378,9 +334,9 @@ nav h2,
   transform: translateY(-2px);
 }
 
-/* ================================
+/* ========================================
    ABOUT
-================================ */
+======================================== */
 
 .about {
   text-align: center;
@@ -393,16 +349,18 @@ nav h2,
 
 .about p {
   max-width: 650px;
+
   margin: 0 auto;
 
   font-size: 18px;
   line-height: 1.8;
+
   color: #94a3b8;
 }
 
-/* ================================
+/* ========================================
    SKILLS
-================================ */
+======================================== */
 
 .skills {
   text-align: center;
@@ -414,9 +372,13 @@ nav h2,
 
 .skills-list {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 18px;
+
   max-width: 850px;
+
   margin: 0 auto;
 }
 
@@ -425,7 +387,9 @@ nav h2,
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
+
   gap: 10px;
 
   background:
@@ -460,12 +424,13 @@ nav h2,
 .skill-name {
   font-size: 15px;
   font-weight: 600;
+
   color: #e2e8f0;
 }
 
-/* ================================
+/* ========================================
    INSPIRATION
-================================ */
+======================================== */
 
 .inspiration {
   text-align: center;
@@ -477,7 +442,9 @@ nav h2,
 
 .inspiration-profiles {
   display: flex;
+
   justify-content: center;
+
   gap: 25px;
 
   margin-top: 30px;
@@ -498,6 +465,7 @@ nav h2,
   color: #ffffff;
 
   border: 1px solid #26344d;
+
   border-radius: 18px;
 
   font-size: 18px;
@@ -524,9 +492,11 @@ nav h2,
   height: 100px;
 
   object-fit: cover;
+
   border-radius: 50%;
 
   display: block;
+
   margin: 0 auto 12px;
 
   border: 2px solid #2563eb;
@@ -536,6 +506,7 @@ nav h2,
 
 .inspiration-profiles button:hover img {
   transform: scale(1.08);
+
   border-color: #ef4444;
 }
 
@@ -547,6 +518,7 @@ nav h2,
 .inspiration-info,
 .profile-info {
   max-width: 600px;
+
   margin: 30px auto 0;
 
   padding: 25px;
@@ -559,6 +531,7 @@ nav h2,
     );
 
   border: 1px solid #26344d;
+
   border-radius: 18px;
 
   box-shadow:
@@ -571,6 +544,7 @@ nav h2,
 .inspiration-info h3,
 .profile-info h3 {
   margin-bottom: 10px;
+
   color: #ffffff;
 }
 
@@ -580,9 +554,9 @@ nav h2,
   line-height: 1.6;
 }
 
-/* ================================
+/* ========================================
    CONTACT
-================================ */
+======================================== */
 
 .contact {
   text-align: center;
@@ -621,9 +595,11 @@ nav h2,
     );
 
   border: 1px solid #26344d;
+
   border-radius: 15px;
 
   text-decoration: none;
+
   color: #ffffff;
 
   box-shadow:
@@ -650,18 +626,21 @@ nav h2,
 
 .contact-item h3 {
   margin-bottom: 5px;
+
   color: #ffffff;
 }
 
 .contact-item p {
   margin: 0;
+
   font-size: 14px;
+
   color: #94a3b8;
 }
 
-/* ================================
+/* ========================================
    FOOTER
-================================ */
+======================================== */
 
 .footer {
   margin-top: 60px;
@@ -672,23 +651,26 @@ nav h2,
 
   border-top: 1px solid #26344d;
 
-  background: #070b14;
+  background: rgba(7, 11, 20, 0.85);
 }
 
 .footer h3 {
   margin-bottom: 10px;
+
   color: #ef4444;
 }
 
 .footer p {
   margin: 5px 0;
+
   font-size: 14px;
+
   color: #64748b;
 }
 
-/* ================================
+/* ========================================
    ANIMATIONS
-================================ */
+======================================== */
 
 @keyframes profileAppear {
   from {
@@ -722,23 +704,27 @@ nav h2,
   }
 }
 
-/* ================================
+/* ========================================
    MOBILE
-================================ */
+======================================== */
 
 @media (max-width: 768px) {
   nav,
   .navbar {
     width: calc(100% - 24px);
+
     padding: 14px 16px;
 
     flex-direction: column;
+
     gap: 12px;
   }
 
   nav ul {
     gap: 12px;
+
     flex-wrap: wrap;
+
     justify-content: center;
   }
 
@@ -758,6 +744,7 @@ nav h2,
 
   .hero {
     min-height: 80vh;
+
     padding: 60px 18px;
   }
 
@@ -768,6 +755,7 @@ nav h2,
 
   .hero h1 {
     font-size: clamp(36px, 12vw, 52px);
+
     letter-spacing: -1px;
   }
 
@@ -790,6 +778,7 @@ nav h2,
 
   .inspiration-profiles {
     flex-direction: column;
+
     align-items: center;
   }
 
@@ -803,10 +792,15 @@ nav h2,
   }
 }
 
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
 @media (max-width: 480px) {
   nav,
   .navbar {
     top: 8px;
+
     margin-top: 8px;
   }
 
@@ -834,5 +828,40 @@ nav h2,
 
   .skill-card {
     padding: 18px 10px;
+  }
+}
+
+
+.hero-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-profile-card {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-profile-card {
+    width: 100%;
   }
 }
